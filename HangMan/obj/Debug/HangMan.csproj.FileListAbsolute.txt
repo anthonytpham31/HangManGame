@@ -1,0 +1,12 @@
+c:\users\ann\documents\visual studio 2017\Projects\HangMan\HangMan\bin\Debug\HangMan.exe.config
+c:\users\ann\documents\visual studio 2017\Projects\HangMan\HangMan\bin\Debug\HangMan.exe
+c:\users\ann\documents\visual studio 2017\Projects\HangMan\HangMan\bin\Debug\HangMan.pdb
+c:\users\ann\documents\visual studio 2017\Projects\HangMan\HangMan\obj\Debug\HangMan.csprojResolveAssemblyReference.cache
+c:\users\ann\documents\visual studio 2017\Projects\HangMan\HangMan\obj\Debug\HangMan.exe
+c:\users\ann\documents\visual studio 2017\Projects\HangMan\HangMan\obj\Debug\HangMan.pdb
+H:\Coding Projects\HangMan\HangMan\bin\Debug\HangMan.exe.config
+H:\Coding Projects\HangMan\HangMan\obj\Debug\HangMan.exe
+H:\Coding Projects\HangMan\HangMan\obj\Debug\HangMan.pdb
+H:\Coding Projects\HangMan\HangMan\bin\Debug\HangMan.exe
+H:\Coding Projects\HangMan\HangMan\bin\Debug\HangMan.pdb
+H:\Coding Projects\HangMan\HangMan\obj\Debug\HangMan.csprojResolveAssemblyReference.cache
