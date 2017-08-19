@@ -10,3 +10,11 @@ H:\Coding Projects\HangMan\HangMan\obj\Debug\HangMan.pdb
 H:\Coding Projects\HangMan\HangMan\bin\Debug\HangMan.exe
 H:\Coding Projects\HangMan\HangMan\bin\Debug\HangMan.pdb
 H:\Coding Projects\HangMan\HangMan\obj\Debug\HangMan.csprojResolveAssemblyReference.cache
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\bin\Debug\HangMan.exe.config
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\bin\Debug\HangMan.exe
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\bin\Debug\HangMan.pdb
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\bin\Debug\nunit.framework.dll
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\bin\Debug\nunit.framework.xml
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.csprojResolveAssemblyReference.cache
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.exe
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.pdb
