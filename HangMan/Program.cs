@@ -13,7 +13,7 @@ namespace HangMan
             {
                 string hiddenWord = wordBank.getWord();
                 HangManGame hangMan = new HangManGame(hiddenWord);
-                hangMan.runHangMan();
+                hangMan.RunHangMan();
                 repeat = AskToPlayAgain();
             }
 

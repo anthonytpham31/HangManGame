@@ -16,9 +16,9 @@ namespace HangMan
 
         private string hiddenWord;
 
-        private List<char> correctGuesses;
+        private List<char> correctGuesses = new List<char>();
 
-        private List<char> incorrectGuesses;
+        private List<char> incorrectGuesses = new List<char>();
 
         public HangManGame(string hiddenWord)
         {
@@ -31,10 +31,37 @@ namespace HangMan
 
         #region HangMan Main Methods
 
-        public void runHangMan()
+        public void RunHangMan()
         {
+            while (!winCondition)
+            {
+                char[] maskedWord = CreateMaskedWord(hiddenWord);
+                DisplayImageAndGuesses(maskedWord);
+            }
 
+        }
 
+        public void DisplayImageAndGuesses(char[] maskedWord)
+        {
+            HangManArt art = new HangManArt();
+            string previousGuesses = string.Join(" ", incorrectGuesses.ToArray());
+            string[] imageDisplay = new string[7];
+
+            Console.WriteLine("Previous Incorrect Guesses Were: " + previousGuesses);
+            Console.WriteLine(String.Join("", art.createHangManImage(guessCounter, imageDisplay)));
+            Console.WriteLine(maskedWord);
+
+            UserInput();
+        }
+
+        public void UserInput()
+        {
+            Console.WriteLine("Enter A Letter:");
+            string userInput = Console.ReadLine().ToLower();
+
+            Console.Clear();
+            CheckUserInputValidity(userInput);
+            CheckPreviousGuesses(userInput);
         }
         #endregion
 
