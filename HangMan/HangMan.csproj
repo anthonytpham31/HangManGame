@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HangManArt.cs" />
-    <Compile Include="MainGame.cs" />
+    <Compile Include="ASCII Art\HangManArt.cs" />
+    <Compile Include="HangManGame\HangManGame.cs" />
+    <Compile Include="HangManGame\MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordBank.cs" />
+    <Compile Include="HangManWords\WordBank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

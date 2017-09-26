@@ -7,7 +7,7 @@ namespace HangMan
 {
     public class WordBank
     {
-        public List<string> getHangManWords()
+        private List<string> getHangManWords()
         {
             List<string> words = new List<string>();
             bool checkForWords = true;
