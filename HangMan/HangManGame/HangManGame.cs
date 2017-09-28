@@ -12,7 +12,7 @@ namespace HangMan
 
         private int guessCounter;
 
-        private bool winCondition;
+        private bool allowUserInput;
 
         private string hiddenWord;
 
@@ -24,7 +24,7 @@ namespace HangMan
         {
             lettersRevealed = 0;
             guessCounter = 6;
-            winCondition = false;
+            allowUserInput = true;
             this.hiddenWord = hiddenWord;
         }
         #endregion
@@ -33,19 +33,20 @@ namespace HangMan
 
         public void RunHangMan()
         {
-            while (!winCondition)
+            while (allowUserInput)
             {
-                char[] maskedWord = CreateMaskedWord(hiddenWord);
-                DisplayImageAndGuesses(maskedWord);
+
+                DisplayImageAndAllowUserInput();
             }
 
         }
 
-        public void DisplayImageAndGuesses(char[] maskedWord)
+        public void DisplayImageAndAllowUserInput()
         {
             HangManArt art = new HangManArt();
             string previousGuesses = string.Join(" ", incorrectGuesses.ToArray());
             string[] imageDisplay = new string[7];
+            char[] maskedWord = CreateMaskedWord(hiddenWord);
 
             Console.WriteLine("Previous Incorrect Guesses Were: " + previousGuesses);
             Console.WriteLine(String.Join("", art.createHangManImage(guessCounter, imageDisplay)));
@@ -60,26 +61,28 @@ namespace HangMan
             string userInput = Console.ReadLine().ToLower();
 
             Console.Clear();
-            CheckUserInputValidity(userInput);
-            CheckPreviousGuesses(userInput);
+            CheckUserInput(userInput);
         }
         #endregion
 
         #region HangMan Check Methods
 
-        private bool CheckUserLoseConditions()
+        private void CheckUserLoseConditions(string hiddenWord)
         {
-            if (guessCounter == 0) return true;
-
-            return false;
+            if (guessCounter == 0)
+            {
+                Console.WriteLine(string.Format($"You Lost! The Correct Answer Was {hiddenWord}"));
+                allowUserInput = false;
+            }
         }
 
-        private bool CheckUserWinConditions()
+        private void CheckUserWinConditions()
         {
-            if (hiddenWord.Length == lettersRevealed) return true;
-            if (winCondition) return true;
-
-            return false;
+            if (hiddenWord.Length == lettersRevealed)
+            {
+                Console.WriteLine("Congratulations, You Won!");
+                allowUserInput = false;
+            }
         }
 
         private bool CheckUserInputToHiddenWord(string userInput)
@@ -116,30 +119,34 @@ namespace HangMan
 
         #region Hangman Helper Methods
 
-        public char[] CreateMaskedWord(string hiddenWord)
+        public void CheckUserInput(string userInput)
+        {
+            CheckUserInputValidity(userInput);
+            CheckPreviousGuesses(userInput);
+            CheckUserInputToHiddenWord(userInput);
+        }
+
+        public char[] CreateMaskedWord(string hiddenWord, string userInput = " ")
         {
             char[] maskedWord = new char[hiddenWord.Length];
 
             for (int i = 0; i < maskedWord.Length; i++)
             {
-                maskedWord[i] = '*';
+                ReplaceMaskedLetter(hiddenWord[i], userInput);
             }
 
             return maskedWord;
         }
 
-        public char[] ReplaceMaskedWord(string hiddenWord, string userInput, char[] replaceMasks)
+        public char ReplaceMaskedLetter(char hiddenLetter, string userInput)
         {
-            for (int i = 0; i < hiddenWord.Length; i++)
+            if (hiddenLetter == userInput.First())
             {
-                if (hiddenWord[i] == userInput.First())
-                {
-                    replaceMasks[i] = userInput.First();
-                    lettersRevealed++;
-                }
-
+                lettersRevealed++;
+                return hiddenLetter;
             }
-            return replaceMasks;
+
+            return '*';
         }
         #endregion
 

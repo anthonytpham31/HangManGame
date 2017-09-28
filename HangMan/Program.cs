@@ -21,17 +21,11 @@ namespace HangMan
 
         static bool AskToPlayAgain()
         {
-
             Console.WriteLine("Press Enter or Y to Play Again.");
             string repeatInput = Console.ReadLine().ToLower();
-            if (repeatInput == "y" || repeatInput == "")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (repeatInput == "y" || repeatInput == "") return true;
+
+            return false;
         }
     }
 
