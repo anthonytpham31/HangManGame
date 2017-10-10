@@ -8,24 +8,19 @@ namespace HangMan
     {
         #region HangMan Fields
 
-        private int lettersRevealed;
-
-        private int guessCounter;
-
-        private bool allowUserInput;
-
-        private string hiddenWord;
-
-        private List<char> correctGuesses = new List<char>();
-
-        private List<char> incorrectGuesses = new List<char>();
+        private int _lettersRevealed;
+        private int _guessCounter;
+        private bool _allowUserInput;
+        private readonly string _hiddenWord;
+        private List<char> _correctGuesses = new List<char>();
+        private List<char> _incorrectGuesses = new List<char>();
 
         public HangManGame(string hiddenWord)
         {
-            lettersRevealed = 0;
-            guessCounter = 6;
-            allowUserInput = true;
-            this.hiddenWord = hiddenWord;
+            _lettersRevealed = 0;
+            _guessCounter = 6;
+            _allowUserInput = true;
+            _hiddenWord = hiddenWord;
         }
         #endregion
 
@@ -33,7 +28,7 @@ namespace HangMan
 
         public void RunHangMan()
         {
-            while (allowUserInput)
+            while (_allowUserInput)
             {
 
                 DisplayImageAndAllowUserInput();
@@ -43,13 +38,13 @@ namespace HangMan
 
         public void DisplayImageAndAllowUserInput()
         {
-            HangManArt art = new HangManArt();
-            string previousGuesses = string.Join(" ", incorrectGuesses.ToArray());
-            string[] imageDisplay = new string[7];
-            char[] maskedWord = CreateMaskedWord(hiddenWord);
+            var art = new HangManArt();
+            var previousGuesses = string.Join(" ", _incorrectGuesses.ToArray());
+            var imageDisplay = new string[7];
+            var maskedWord = CreateMaskedWord(_hiddenWord);
 
             Console.WriteLine("Previous Incorrect Guesses Were: " + previousGuesses);
-            Console.WriteLine(String.Join("", art.createHangManImage(guessCounter, imageDisplay)));
+            Console.WriteLine(string.Join("", art.createHangManImage(_guessCounter, imageDisplay)));
             Console.WriteLine(maskedWord);
 
             UserInput();
@@ -58,7 +53,7 @@ namespace HangMan
         public void UserInput()
         {
             Console.WriteLine("Enter A Letter:");
-            string userInput = Console.ReadLine().ToLower();
+            var userInput = Console.ReadLine()?.ToLower();
 
             Console.Clear();
             CheckUserInput(userInput);
@@ -67,48 +62,41 @@ namespace HangMan
 
         #region HangMan Check Methods
 
-        private void CheckUserLoseConditions(string hiddenWord)
+        private void CheckUserLoseConditions()
         {
-            if (guessCounter == 0)
-            {
-                Console.WriteLine(string.Format($"You Lost! The Correct Answer Was {hiddenWord}"));
-                allowUserInput = false;
-            }
+            if (_guessCounter != 0) return;
+            Console.WriteLine(string.Format($"You Lost! The Correct Answer Was {_hiddenWord}"));
+            _allowUserInput = false;
         }
 
         private void CheckUserWinConditions()
         {
-            if (hiddenWord.Length == lettersRevealed)
-            {
-                Console.WriteLine("Congratulations, You Won!");
-                allowUserInput = false;
-            }
+            if (_hiddenWord.Length != _lettersRevealed) return;
+            Console.WriteLine("Congratulations, You Won!");
+            _allowUserInput = false;
         }
 
-        private bool CheckUserInputToHiddenWord(string userInput)
+        private void CheckUserInputToHiddenWord(string userInput)
         {
-            if (hiddenWord.Contains(userInput))
+            if (_hiddenWord.Contains(userInput))
             {
-                correctGuesses.Add(userInput[0]);
-                return true;
+                _correctGuesses.Add(userInput[0]);
+                CheckUserWinConditions();
             }
-            else
-            {
-                incorrectGuesses.Add(userInput[0]);
-                guessCounter--;
-                return false;
-            }
+            _incorrectGuesses.Add(userInput[0]);
+            _guessCounter--;
+            CheckUserLoseConditions();
         }
 
         private void CheckPreviousGuesses(string userInput)
         {
-            if (correctGuesses.Contains(userInput[0]) || incorrectGuesses.Contains(userInput[0]))
+            if (_correctGuesses.Contains(userInput[0]) || _incorrectGuesses.Contains(userInput[0]))
             {
-                Console.WriteLine(String.Format($"Already Guessed {userInput[0]}"));
+                Console.WriteLine(string.Format($"Already Guessed {userInput[0]}"));
             }
         }
 
-        private void CheckUserInputValidity(string userInput)
+        private static void CheckUserInputValidity(string userInput)
         {
             if (userInput.Length != 1 || userInput.Any(x => !char.IsLetter(x)))
             {
@@ -128,9 +116,9 @@ namespace HangMan
 
         public char[] CreateMaskedWord(string hiddenWord, string userInput = " ")
         {
-            char[] maskedWord = new char[hiddenWord.Length];
+            var maskedWord = new char[hiddenWord.Length];
 
-            for (int i = 0; i < maskedWord.Length; i++)
+            for (var i = 0; i < maskedWord.Length; i++)
             {
                 ReplaceMaskedLetter(hiddenWord[i], userInput);
             }
@@ -140,13 +128,9 @@ namespace HangMan
 
         public char ReplaceMaskedLetter(char hiddenLetter, string userInput)
         {
-            if (hiddenLetter == userInput.First())
-            {
-                lettersRevealed++;
-                return hiddenLetter;
-            }
-
-            return '*';
+            if (hiddenLetter != userInput.First()) return '*';
+            _lettersRevealed++;
+            return hiddenLetter;
         }
         #endregion
 
