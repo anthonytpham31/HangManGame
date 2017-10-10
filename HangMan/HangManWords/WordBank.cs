@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace HangMan
+namespace HangMan.HangManWords
 {
     public class WordBank
     {
@@ -50,7 +50,7 @@ namespace HangMan
         {
             var wordList = GetHangManWords();
             var rnd = new Random();
-            var randomizer = wordList.ElementAt(rnd.Next(wordList.Count()));
+            var randomizer = wordList.ElementAt(rnd.Next(wordList.Count));
             return randomizer;
         }
     }

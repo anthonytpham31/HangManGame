@@ -1,4 +1,6 @@
 ﻿using System;
+using HangMan.HangManWords;
+using HangMan.HangManGame;
 
 namespace HangMan
 {
@@ -11,7 +13,7 @@ namespace HangMan
             {
                 var wordBank = new WordBank();
                 var hiddenWord = wordBank.GetWord();
-                var hangMan = new HangManGame.HangManGame(hiddenWord);
+                var hangMan = new MainGame(hiddenWord);
 
                 hangMan.RunHangMan();
                 repeat = AskToPlayAgain();
@@ -22,10 +24,8 @@ namespace HangMan
         private static bool AskToPlayAgain()
         {
             Console.WriteLine("Press Enter or Y to Play Again.");
-            string repeatInput = Console.ReadLine()?.ToLower();
-            if (repeatInput == "y" || repeatInput == "") return true;
-
-            return false;
+            var repeatInput = Console.ReadLine()?.ToLower();
+            return repeatInput == "y" || repeatInput == "";
         }
     }
 
