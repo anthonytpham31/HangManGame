@@ -39,6 +39,7 @@ namespace HangMan.HangManGame
 
         public void DisplayImageAndAllowUserInput()
         {
+            // This needs to be split out
             var art = new HangManArt();
             var previousGuesses = string.Join(" ", _incorrectGuesses.ToArray());
             var maskedWord = CreateMaskedWord(_hiddenWord);
@@ -84,14 +85,14 @@ namespace HangMan.HangManGame
         private void CheckUserLoseConditions()
         {
             if (_guessCounter != 0) return;
-            Console.WriteLine(string.Format($"You Lost! The correct answer Was {_hiddenWord}."));
+            Console.WriteLine(string.Format($"You Lost! The correct answer was {_hiddenWord}."));
             _allowUserInput = false;
         }
 
         private void CheckUserWinConditions()
         {
             if (_hiddenWord.Length != _lettersRevealed) return;
-            Console.WriteLine("Congratulations, you won!");
+            Console.WriteLine(string.Format($"Congratulations, you won! It was {_hiddenWord}."));
             _allowUserInput = false;
         }
 
@@ -111,7 +112,7 @@ namespace HangMan.HangManGame
         {
             if (_correctGuesses.Contains(userInput[0]) || _incorrectGuesses.Contains(userInput[0]))
             {
-                Console.WriteLine(string.Format($"Already Guessed {userInput[0]}"));
+                Console.WriteLine(string.Format($"Already Guessed {userInput}"));
             }
         }
 
