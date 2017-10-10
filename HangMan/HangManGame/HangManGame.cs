@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HangMan.ASCII_Art;
 
-namespace HangMan
+namespace HangMan.HangManGame
 {
     public class HangManGame
     {
@@ -40,11 +41,10 @@ namespace HangMan
         {
             var art = new HangManArt();
             var previousGuesses = string.Join(" ", _incorrectGuesses.ToArray());
-            var imageDisplay = new string[7];
             var maskedWord = CreateMaskedWord(_hiddenWord);
 
             Console.WriteLine("Previous Incorrect Guesses Were: " + previousGuesses);
-            Console.WriteLine(string.Join("", art.createHangManImage(_guessCounter, imageDisplay)));
+            Console.WriteLine(string.Join("", art.CreateHangManImage(_guessCounter)));
             Console.WriteLine(maskedWord);
 
             UserInput();
@@ -58,6 +58,25 @@ namespace HangMan
             Console.Clear();
             CheckUserInput(userInput);
         }
+
+        public char[] CreateMaskedWord(string hiddenWord, string userInput = " ")
+        {
+            var maskedWord = new char[hiddenWord.Length];
+
+            for (var i = 0; i < maskedWord.Length; i++)
+            {
+                ReplaceMaskedLetter(hiddenWord[i], userInput);
+            }
+
+            return maskedWord;
+        }
+
+        public char ReplaceMaskedLetter(char hiddenLetter, string userInput)
+        {
+            if (hiddenLetter != userInput.First()) return '*';
+            _lettersRevealed++;
+            return hiddenLetter;
+        }
         #endregion
 
         #region HangMan Check Methods
@@ -65,14 +84,14 @@ namespace HangMan
         private void CheckUserLoseConditions()
         {
             if (_guessCounter != 0) return;
-            Console.WriteLine(string.Format($"You Lost! The Correct Answer Was {_hiddenWord}"));
+            Console.WriteLine(string.Format($"You Lost! The correct answer Was {_hiddenWord}."));
             _allowUserInput = false;
         }
 
         private void CheckUserWinConditions()
         {
             if (_hiddenWord.Length != _lettersRevealed) return;
-            Console.WriteLine("Congratulations, You Won!");
+            Console.WriteLine("Congratulations, you won!");
             _allowUserInput = false;
         }
 
@@ -103,9 +122,6 @@ namespace HangMan
                 Console.WriteLine("Please Enter Just A Letter");
             }
         }
-        #endregion
-
-        #region Hangman Helper Methods
 
         public void CheckUserInput(string userInput)
         {
@@ -113,26 +129,6 @@ namespace HangMan
             CheckPreviousGuesses(userInput);
             CheckUserInputToHiddenWord(userInput);
         }
-
-        public char[] CreateMaskedWord(string hiddenWord, string userInput = " ")
-        {
-            var maskedWord = new char[hiddenWord.Length];
-
-            for (var i = 0; i < maskedWord.Length; i++)
-            {
-                ReplaceMaskedLetter(hiddenWord[i], userInput);
-            }
-
-            return maskedWord;
-        }
-
-        public char ReplaceMaskedLetter(char hiddenLetter, string userInput)
-        {
-            if (hiddenLetter != userInput.First()) return '*';
-            _lettersRevealed++;
-            return hiddenLetter;
-        }
         #endregion
-
     }
 }

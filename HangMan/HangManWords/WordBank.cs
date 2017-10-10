@@ -7,42 +7,50 @@ namespace HangMan
 {
     public class WordBank
     {
-        private List<string> getHangManWords()
+        private List<string> GetHangManWords()
         {
-            List<string> words = new List<string>();
-            bool checkForWords = true;
+            var words = new List<string>();
             try
             {
-                using (StreamReader sr = new StreamReader("./HangManWords.txt"))
+                
+                using (var streamReader = new StreamReader("./HangManWords.txt"))
                 {
-                    while (checkForWords)
-                    {
-                        string line = sr.ReadLine();
-                        if (line == null || !line.Any())
-                        {
-                            checkForWords = false;
-                        }
-                        else
-                        {
-                            words.Add(line);
-                            checkForWords = true;
-                        }
-                    }
+                    var streamedWords = StreamWords(streamReader);
+                    return streamedWords;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("The file could not be read:");
+                Console.WriteLine("Unable To Read File.");
                 Console.WriteLine(e.Message);
             }
             return words;
         }
 
-        public string getWord()
+        public List<string> StreamWords(StreamReader streamReader)
         {
-            List<string> wordList = getHangManWords();
-            Random rnd = new Random();
-            string randomizer = wordList.ElementAt(rnd.Next(wordList.Count()));
+            var checkForWords = true;
+            var words = new List<string>();
+            while (checkForWords)
+            {
+                var line = streamReader.ReadLine();
+                if (line == null || !line.Any())
+                {
+                    checkForWords = false;
+                }
+                else
+                {
+                    words.Add(line);
+                }
+            }
+            return words;
+        }
+
+        public string GetWord()
+        {
+            var wordList = GetHangManWords();
+            var rnd = new Random();
+            var randomizer = wordList.ElementAt(rnd.Next(wordList.Count()));
             return randomizer;
         }
     }

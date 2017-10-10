@@ -2,27 +2,27 @@
 
 namespace HangMan
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            WordBank wordBank = new WordBank();
-
-            bool repeat = true;
+            var repeat = true;
             while (repeat)
             {
-                string hiddenWord = wordBank.getWord();
-                HangManGame hangMan = new HangManGame(hiddenWord);
+                var wordBank = new WordBank();
+                var hiddenWord = wordBank.GetWord();
+                var hangMan = new HangManGame.HangManGame(hiddenWord);
+
                 hangMan.RunHangMan();
                 repeat = AskToPlayAgain();
             }
 
         }
 
-        static bool AskToPlayAgain()
+        private static bool AskToPlayAgain()
         {
             Console.WriteLine("Press Enter or Y to Play Again.");
-            string repeatInput = Console.ReadLine().ToLower();
+            string repeatInput = Console.ReadLine()?.ToLower();
             if (repeatInput == "y" || repeatInput == "") return true;
 
             return false;

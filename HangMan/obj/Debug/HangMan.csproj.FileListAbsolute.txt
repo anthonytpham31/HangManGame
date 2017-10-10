@@ -19,3 +19,12 @@ C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.csprojResolve
 C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.exe
 C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.pdb
 C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.csproj.CoreCompileInputs.cache
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.csprojResolveAssemblyReference.cache
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.csproj.CoreCompileInputs.cache
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.exe
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.pdb
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\HangMan.exe.config
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\HangMan.exe
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\HangMan.pdb
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\nunit.framework.dll
+C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\nunit.framework.xml

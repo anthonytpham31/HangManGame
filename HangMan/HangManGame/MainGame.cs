@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HangMan.ASCII_Art;
 
-namespace HangMan
+namespace HangMan.HangManGame
 {
     public class MainGame
     {
-        private WordBank wordBank = new WordBank();
-        private HangManArt createArt = new HangManArt();
-
-        public void runHangMan()
+        public void RunHangMan()
         {
-            bool repeat = true;
+            var wordBank = new WordBank();
+            var createArt = new HangManArt();
+            var repeat = true;
             while (repeat)
             {
                 Console.Clear();
-                string hiddenWord = wordBank.getWord().ToLower();
-                HangManGame createGame = new HangManGame(hiddenWord);
+                string hiddenWord = wordBank.GetWord().ToLower();
+                HangMan.HangManGame.HangManGame createGame = new HangMan.HangManGame.HangManGame(hiddenWord);
 
 
                 bool won = false;
@@ -38,7 +38,7 @@ namespace HangMan
                     string inc = string.Join(" ", incorrectGuesses.ToArray());
                     Console.WriteLine("Previous Incorrect Guesses Were: " + inc);
 
-                    Console.WriteLine(String.Join("", createArt.createHangManImage(guessCounter, imageDisplay)));
+                    Console.WriteLine(String.Join("", createArt.CreateHangManImage(guessCounter)));
                     Console.WriteLine(hang);
 
                     Console.WriteLine("Enter A Letter:");
@@ -97,17 +97,12 @@ namespace HangMan
                 }
                 else
                 {
-                    Console.WriteLine(String.Join("", createArt.createHangManImage(guessCounter, imageDisplay)));
+                    Console.WriteLine(String.Join("", createArt.CreateHangManImage(guessCounter)));
                     Console.WriteLine("You Lost! It was {0}", hiddenWord);
                 }
 
 
             }
-
-        }
-
-        public void WinConditions()
-        {
 
         }
 

@@ -1,67 +1,92 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HangMan
+﻿namespace HangMan.ASCII_Art
 {
     public class HangManArt
     {
         // Easier to create ASCII Art
-        const string image1 = "__________    \n";
-        const string image2 = "|/       |    \n";
-        const string image3 = "|             \n";
-        const string image4 = "|             \n";
-        const string image5 = "|             \n";
-        const string image6 = "|             \n";
-        const string image7 = "|             \n";
-        const string wrongGuess1 = "|        O    \n"; // image3
-        const string wrongGuess2 = "|       /     \n"; // image4
-        const string wrongGuess3 = "|       /|    \n"; // image4
-        const string wrongGuess4 = "|       /|\\  \n"; // image4
-        const string wrongGuess5 = "|       /     \n"; // image5
-        const string wrongGuess6 = "|       / \\  \n"; // image5
+        private const string Image1 = "__________    \n";
+        private const string Image2 = "|/       |    \n";
+        private const string Image3 = "|             \n";
+        private const string Image4 = "|             \n";
+        private const string Image5 = "|             \n";
+        private const string Image6 = "|             \n";
+        private const string Image7 = "|             \n";
+        private const string WrongGuess1 = "|        O    \n"; // image3
+        private const string WrongGuess2 = "|       /     \n"; // image4
+        private const string WrongGuess3 = "|       /|    \n"; // image4
+        private const string WrongGuess4 = "|       /|\\  \n"; // image4
+        private const string WrongGuess5 = "|       /     \n"; // image5
+        private const string WrongGuess6 = "|       / \\  \n"; // image5
 
-        public string[] createHangManImage(int guessCounter, string[] imageDisplay)
+        public string[] CreateHangManImage(int guessCounter)
         {
-            imageDisplay[0] = image1;
-            imageDisplay[1] = image2;
-            imageDisplay[2] = image3;
-            imageDisplay[3] = image4;
-            imageDisplay[4] = image5;
-            imageDisplay[5] = image6;
-            imageDisplay[6] = image7;
-            if (guessCounter == 5)
+            var imageDisplay = new string[7];
+
+
+            switch (guessCounter)
             {
-                imageDisplay[3] = wrongGuess1;
-            }
-            if (guessCounter == 4)
-            {
-                imageDisplay[3] = wrongGuess1;
-                imageDisplay[4] = wrongGuess2;
-            }
-            if (guessCounter == 3)
-            {
-                imageDisplay[3] = wrongGuess1;
-                imageDisplay[4] = wrongGuess3;
-            }
-            if (guessCounter == 2)
-            {
-                imageDisplay[3] = wrongGuess1;
-                imageDisplay[4] = wrongGuess4;
-            }
-            if (guessCounter == 1)
-            {
-                imageDisplay[3] = wrongGuess1;
-                imageDisplay[4] = wrongGuess4;
-                imageDisplay[5] = wrongGuess5;
-            }
-            if (guessCounter == 0)
-            {
-                imageDisplay[3] = wrongGuess1;
-                imageDisplay[4] = wrongGuess4;
-                imageDisplay[5] = wrongGuess6;
+                case 5:
+                    imageDisplay[0] = Image1;
+                    imageDisplay[1] = Image2;
+                    imageDisplay[2] = Image3;
+                    imageDisplay[3] = WrongGuess1;
+                    imageDisplay[4] = Image5;
+                    imageDisplay[5] = Image6;
+                    imageDisplay[6] = Image7;
+                    break;
+                case 4:
+                    imageDisplay[0] = Image1;
+                    imageDisplay[1] = Image2;
+                    imageDisplay[2] = Image3;
+                    imageDisplay[3] = WrongGuess1;
+                    imageDisplay[4] = WrongGuess2;
+                    imageDisplay[5] = Image6;
+                    imageDisplay[6] = Image7;
+                    break;
+                case 3:
+                    imageDisplay[0] = Image1;
+                    imageDisplay[1] = Image2;
+                    imageDisplay[2] = Image3;
+                    imageDisplay[3] = WrongGuess1;
+                    imageDisplay[4] = WrongGuess3;
+                    imageDisplay[5] = Image6;
+                    imageDisplay[6] = Image7;
+                    break;
+                case 2:
+                    imageDisplay[0] = Image1;
+                    imageDisplay[1] = Image2;
+                    imageDisplay[2] = Image3;
+                    imageDisplay[3] = WrongGuess1;
+                    imageDisplay[4] = WrongGuess4;
+                    imageDisplay[5] = Image6;
+                    imageDisplay[6] = Image7;
+                    break;
+                case 1:
+                    imageDisplay[0] = Image1;
+                    imageDisplay[1] = Image2;
+                    imageDisplay[2] = Image3;
+                    imageDisplay[3] = WrongGuess1;
+                    imageDisplay[4] = WrongGuess4;
+                    imageDisplay[5] = WrongGuess5;
+                    imageDisplay[6] = Image7;
+                    break;
+                case 0:
+                    imageDisplay[0] = Image1;
+                    imageDisplay[1] = Image2;
+                    imageDisplay[2] = Image3;
+                    imageDisplay[3] = WrongGuess1;
+                    imageDisplay[4] = WrongGuess4;
+                    imageDisplay[5] = WrongGuess6;
+                    imageDisplay[6] = Image7;
+                    break;
+                default:
+                    imageDisplay[0] = Image1;
+                    imageDisplay[1] = Image2;
+                    imageDisplay[2] = Image3;
+                    imageDisplay[3] = Image4;
+                    imageDisplay[4] = Image5;
+                    imageDisplay[5] = Image6;
+                    imageDisplay[6] = Image7;
+                    break;
             }
 
             return imageDisplay;
