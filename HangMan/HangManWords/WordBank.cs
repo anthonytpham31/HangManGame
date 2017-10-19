@@ -12,7 +12,7 @@ namespace HangMan.HangManWords
             var words = new List<string>();
             try
             {
-                
+
                 using (var streamReader = new StreamReader("./HangManWords.txt"))
                 {
                     var streamedWords = StreamWords(streamReader);
@@ -27,7 +27,7 @@ namespace HangMan.HangManWords
             return words;
         }
 
-        public List<string> StreamWords(StreamReader streamReader)
+        private List<string> StreamWords(StreamReader streamReader)
         {
             var checkForWords = true;
             var words = new List<string>();
