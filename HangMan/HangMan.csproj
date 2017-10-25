@@ -46,19 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ASCII Art\HangManArt.cs" />
-    <Compile Include="HangManGame\MainGame.cs" />
-    <Compile Include="HangManGame\Old.cs" />
+    <Compile Include="HangManArt.cs" />
+    <Compile Include="HangManConsoleGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HangManWords\WordBank.cs" />
+    <Compile Include="WordBank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HangManTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

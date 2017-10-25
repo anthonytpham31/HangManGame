@@ -1,4 +1,4 @@
-﻿namespace HangMan.ASCII_Art
+﻿namespace HangMan
 {
     public class HangManArt
     {
