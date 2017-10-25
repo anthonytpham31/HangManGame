@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HangManArt.cs" />
-    <Compile Include="HangManConsoleGame.cs" />
+    <Compile Include="ConsoleLogic\HangManArt.cs" />
+    <Compile Include="ConsoleLogic\HangManConsoleGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordBank.cs" />
+    <Compile Include="ConsoleLogic\WordBank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

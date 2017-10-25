@@ -27,7 +27,7 @@ namespace HangMan
             return words;
         }
 
-        private List<string> StreamWords(StreamReader streamReader)
+        private static List<string> StreamWords(TextReader streamReader)
         {
             var checkForWords = true;
             var words = new List<string>();

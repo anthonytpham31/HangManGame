@@ -18,7 +18,6 @@ C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\bin\Debug\nunit.framework.xml
 C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.exe
 C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.pdb
 C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.csproj.CoreCompileInputs.cache
-C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.csprojResolveAssemblyReference.cache
 C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.csproj.CoreCompileInputs.cache
 C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.exe
 C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\obj\Debug\HangMan.pdb

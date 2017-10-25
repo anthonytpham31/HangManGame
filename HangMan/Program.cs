@@ -23,6 +23,7 @@ namespace HangMan
         {
             Console.WriteLine("Press Enter or Y to Play Again.");
             var repeatInput = Console.ReadLine()?.ToLower();
+            Console.Clear();
             return repeatInput == "y" || repeatInput == "";
         }
     }
