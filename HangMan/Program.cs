@@ -1,4 +1,5 @@
 ﻿using System;
+using HangMan.IsolatedConsoleGame;
 
 namespace HangMan
 {

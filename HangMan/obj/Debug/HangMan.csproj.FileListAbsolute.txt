@@ -26,3 +26,4 @@ C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\D
 C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\HangMan.pdb
 C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\nunit.framework.dll
 C:\Users\Anthony.Pham\Coding Projects\My Side Projects\HangManGame\HangMan\bin\Debug\nunit.framework.xml
+C:\Users\Todd\Coding Projects\VS\Hangman\HangMan\obj\Debug\HangMan.csprojResolveAssemblyReference.cache
